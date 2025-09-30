@@ -34,11 +34,13 @@ export default function LoginForm() {
 
   const onSubmit = async (values: FieldValues) => {
     try {
-          const res = await login(values);
-          if (res?.id) {
-            toast.success("login successful!");
-          }
-         
+        
+         signIn("credentials", {
+         ...values,
+          redirect: true,
+          callbackUrl: "/dashboard",
+        })
+        toast.success("login successful!");
         } catch (error) {
           toast.error("Registration failed. Please try again.");
         }

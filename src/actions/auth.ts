@@ -7,13 +7,12 @@ export const register = async (data: FieldValues) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if(!res?.ok){
+  if (!res?.ok) {
     console.log("register failed");
   }
 
   return await res.json();
 };
-
 
 export const login = async (data: FieldValues) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
@@ -21,7 +20,7 @@ export const login = async (data: FieldValues) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if(!res?.ok){
+  if (!res?.ok) {
     console.log("login failed");
   }
 
